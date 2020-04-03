@@ -34,8 +34,23 @@ inquirer.prompt([
           "Quit"
       ]
     }
-]).then(function() {
+]).then(function (answers) {
+    console.log('----- ' + answers.choices + ' -----')
+    if (answers.choice[0] === "Post an item") {
+        postAnItem()
+    } else if (answers.choice[1] === "Bid on an item") {
+        bidAnItem()
+    } else {
+    displayDb()
+    }
+  });
+    // If user selects Post Item
+    // Prompt user for item name, description, starting bid
+    // CREATE SQL inside postAnItem function
+
+
     // If user selects Bid on Item
+    // run bidAnItem function
     // Run SQL query to display full table of items
     // User selects item id that they want to bid on
     // When id is chosen, run SQL query to display just that item (using item id)
