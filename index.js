@@ -1,4 +1,6 @@
 var mysql = require("mysql");
+var fs = require("fs");
+var inquirer = require("inquirer");
 
 var connection = mysql.createConnection({
   host: "localhost",
@@ -10,8 +12,8 @@ var connection = mysql.createConnection({
   user: "root",
 
   // Your password
-  password: "",
-  database: "ice_creamDB"
+  password: "root",
+  database: "greatBay_db"
 });
 
 connection.connect(function(err) {
@@ -19,3 +21,19 @@ connection.connect(function(err) {
   console.log("connected as id " + connection.threadId + "\n");
   createProduct();
 });
+
+inquirer.prompt([
+    {
+      type: "checkbox",
+      name: "userAction",
+      message: "What would you like to do?",
+      choices: [
+          "Post an item",
+          "Bid on an item"
+      ]
+    }
+]).then(function(data) {
+
+}
+)
+    
