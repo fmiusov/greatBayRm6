@@ -22,6 +22,7 @@ connection.connect(function(err) {
   createProduct();
 });
 
+// into a function where the user is sent back to if bid failed (startingState)
 inquirer.prompt([
     {
       type: "checkbox",
@@ -29,11 +30,20 @@ inquirer.prompt([
       message: "What would you like to do?",
       choices: [
           "Post an item",
-          "Bid on an item"
+          "Bid on an item",
+          "Quit"
       ]
     }
-]).then(function(data) {
-
+]).then(function() {
+    // If user selects Bid on Item
+    // Run SQL query to display full table of items
+    // User selects item id that they want to bid on
+    // When id is chosen, run SQL query to display just that item (using item id)
+    // Inquirer prompt asking how much they would like to bid
+    // Their input needs to be compared to the current highest bid (conditional statement)
+    // Success - Condition where user bid is higher
+    // Success condition involves UPDATE SQL and then display updated table (using id)
+    // Failure - Let user know their bid is equal/lower, send them back to initial prompt
 }
 )
     
